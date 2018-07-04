@@ -1,2 +1,4 @@
 # ymspcsystem
-create one PC client using node.js to provide restfulAPI.
+using node.js to develop restfulAPI.
+DB: mongoDB.
+
