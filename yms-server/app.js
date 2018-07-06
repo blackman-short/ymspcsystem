@@ -5,11 +5,11 @@ const mongoose = require('mongoose')
  */
 
 const Express = require('express')
-// const config = require('./configuration')
+const config = require('./configuration')
 var bodyParser = require('body-parser')
-// const routers = require('./routers')
-// const logConfig = require('./logging/logConfig')
-// const logUtil = require('./logging')
+const routers = require('./routes')
+const logConfig = require('./logging/logConfig')
+const logUtil = require('./logging')
 const fs = require('fs')
 var app = new Express()
 
@@ -39,14 +39,14 @@ var confirmPath = function (pathStr) {
 /**
  * 初始化log相关目录
  */
-// var initLogPath = function () {
-//   // 创建log的根目录'logs'
-//   if (logConfig.dirname) {
-//     confirmPath(logConfig.dirname)
-//   }
-// }
+var initLogPath = function () {
+  // 创建log的根目录'logs'
+  if (logConfig.dirname) {
+    confirmPath(logConfig.dirname)
+  }
+}
 
-// initLogPath()
+initLogPath()
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -67,16 +67,16 @@ app.listen(3000, function () {
   console.log(`the server is start at port 3000`)
 })
 
-// mongoose.Promise = global.Promise
-// mongoose.connection.openUri(config.db, function (err) {
-//   if (err) {
-//     console.log(`connect to ${config.db} failed. ${err.message}`)
-//     logUtil.logMessageAndError(`connect to ${config.db} failed.`, err)
-//     process.exit(1)
-//   } else {
-//     console.log(`connect to ${config.db} successful.`)
-//   }
-// })
+mongoose.Promise = global.Promise
+mongoose.connection.openUri(config.db, function (err) {
+  if (err) {
+    console.log(`connect to ${config.db} failed. ${err.message}`)
+    logUtil.logMessageAndError(`connect to ${config.db} failed.`, err)
+    process.exit(1)
+  } else {
+    console.log(`connect to ${config.db} successful.`)
+  }
+})
 
 module.exports = app
 
