@@ -9,6 +9,7 @@ import store from './store'
 import 'font-awesome/css/font-awesome.min.css'
 // 引入element-ui
 import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 
