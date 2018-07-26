@@ -1,8 +1,6 @@
 <!-- 记录信息 -->
 <template>
-  <div>
-    
-  </div>
+  <div>RecordPage</div>
 </template>
 
 <script>

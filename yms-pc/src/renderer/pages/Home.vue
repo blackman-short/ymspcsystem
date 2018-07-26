@@ -4,7 +4,7 @@
       <Header :title="headerTitle"></Header>
     </el-header>
     <el-container>
-      <el-aside>
+      <el-aside style="width:18%">
         <dashboard @handleMenuSelect="getMenuSelect"></dashboard>
       </el-aside>
 
@@ -47,8 +47,8 @@ export default {
     }
   },
 
-  created() {
-    
+  created () {
+
   },
   methods: {
     getMenuSelect (menu) {

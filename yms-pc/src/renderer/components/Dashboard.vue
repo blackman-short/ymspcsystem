@@ -30,13 +30,13 @@
 <script>
 export default {
   name: 'Dashboard',
-  data() {
+  data () {
     return {
       routerPage: 1
     }
   },
-  methods:{
-    handleMenuSelect(index, indexPath) {
+  methods: {
+    handleMenuSelect (index, indexPath) {
       this.routerPage = index
       this.$emit('handleMenuSelect', this.routerPage)
     }
@@ -49,10 +49,11 @@ export default {
     height 100%
     width -webkit-fill-available
     text-align center
-  .el-menu-item
-    font-family Tahoma, "Microsoft Yahei", Simsun
-    font-size 25px
-    margin 35px 0px 0px 0px
+  .el-menu
+    .el-menu-item
+      font-family Tahoma, "Microsoft Yahei", Simsun
+      font-size 25px
+      margin 35px 0px 0px 0px
 </style>
 
 
