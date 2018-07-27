@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import showMsgDialog from '../src/common/showMsgDialog'
+Vue.use(showMsgDialog)
+
 // 引入字体库
 import 'font-awesome/css/font-awesome.min.css'
 // 引入element-ui

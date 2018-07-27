@@ -73,7 +73,7 @@ export default {
 
     // 删除用户预约信息.
     handleDelete (index, userPhone) {
-
+		this.showDelete()
     }
   }
 }
