@@ -1,19 +1,14 @@
 const MESSAGE = {
-  DELETE: '此操作将永久删除该文件, 是否继续?'
+  DELETE: '删除成功!',
+  UPDATE: '修改成功!',
+  ADD: '添加成功!'
 }
 
-
 module.exports = function (Vue, options) {
-  Vue.prototype.showDelete = function () {
-    this.$confirm (MESSAGE.DELETE, '提示', {
-      confirmButtonText: '确认',
-      cancelButtonText: '取消',
-      type: 'warning'
-    }).then(() => {
-      this.$message({
-        type: 'success',
-        message: '删除成功!'
-      })
+  Vue.prototype.showSuccess = function (type) {
+    this.$message({
+      type: 'success',
+      message: MESSAGE[type]
     })
   }
 }

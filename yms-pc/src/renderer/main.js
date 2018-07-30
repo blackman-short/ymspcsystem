@@ -6,13 +6,13 @@ import router from './router'
 import store from './store'
 
 import showMsgDialog from '../src/common/showMsgDialog'
-Vue.use(showMsgDialog)
 
 // 引入字体库
 import 'font-awesome/css/font-awesome.min.css'
 // 引入element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(showMsgDialog)
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 

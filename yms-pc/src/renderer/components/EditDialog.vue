@@ -1,7 +1,13 @@
 <template>
   <div class="show-dialog">
-    <el-dialog>
-
+    <el-dialog
+    title='title'
+    :visible.sync="isShow">
+      <el-form :model='dialogModel'>
+        <el-form-item v-for="field in fields" :key="field" label="{{field.fieldName}}">
+          <el-input v-if="field.type === 'text'" v-model="dialogModel[field.fieldName]"></el-input>
+        </el-form-item>
+      </el-form>
     </el-dialog>
   </div>
 </template>
@@ -27,7 +33,7 @@ export default {
       default: null
     }
   },
-  data() {
+  data () {
     return {
 
     }

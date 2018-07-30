@@ -42,17 +42,33 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <edit-dialog :isShow='showEditDialog' :fields="fields" :dialogModel="editForm">
+
+    </edit-dialog>
   </div>
 </template>
 
 <script>
+import EditDialog from '@/components/EditDialog.vue'
 const mockData = require('../mockData').mockData
+const EditField = require('../common/type').EditField
 
 export default {
   name: 'SubscribePage',
+  components: {
+    EditDialog
+  },
   data () {
     return {
-      records: []
+      records: [],
+      fields: [
+        new EditField('姓名')
+      ],
+      showEditDialog: false,
+      editForm: {
+        '姓名': 'tom'
+      }
     }
   },
 
@@ -73,7 +89,7 @@ export default {
 
     // 删除用户预约信息.
     handleDelete (index, userPhone) {
-		this.showDelete()
+      this.showSuccess('DELETE')
     }
   }
 }
