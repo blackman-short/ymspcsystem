@@ -10,6 +10,10 @@ Vue.use(Router)
 const paths = [
   {
     path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     component: HomePage,
     name: '主页'
   },

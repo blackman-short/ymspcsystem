@@ -4,7 +4,7 @@
     <div class="operator">
       
       <div class="new-add">
-        <el-button type="success">新增预约</el-button>
+        <el-button type="success" @click="addOneSubscribe">新增预约</el-button>
       </div>
 
       <!-- 用户姓名关键字搜索 -->
@@ -43,36 +43,89 @@
       </el-table-column>
     </el-table>
 
-    <edit-dialog :isShow='showEditDialog' :fields="fields" :dialogModel="editForm">
+    <!-- 添加预约 -->
+    <el-dialog title="预约信息" :visible.sync="showAddDialog" size="tiny">
+      <el-form :model="addFormModel" :rules="addRules" label-position="right" status-icon label-width="80px">
+        <el-form-item label="姓名">
+          <el-input v-model="addFormModel.name" placeholder="姓名" clearable></el-input>
+        </el-form-item>
 
-    </edit-dialog>
+        <el-form-item label="电话">
+          <el-input v-model="addFormModel.phoneNumber" placeholder="电话" clearable></el-input>
+        </el-form-item>
+
+        <el-form-item label="性别">
+          <el-radio-group v-model="addFormModel.sex">
+            <el-radio :label="1">男</el-radio>
+            <el-radio :label="0">女</el-radio>
+          </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="住址">
+          <el-input v-model="addFormModel.address" placeholder="住址" clearable></el-input>
+        </el-form-item>
+
+        <el-form-item label="病症">
+          <el-input v-model="addFormModel.description" type="textarea" placeholder="请输入病症" :rows="3"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="showAddDialog = false">取消</el-button>
+        <el-button @click="saveAddForm" type="primary">确定</el-button>
+      </div>
+    </el-dialog>
+    
+    <!-- 修改预约 -->
+    <el-dialog title="预约信息" :visible.sync="showEditDialog" size="tiny">
+      <el-form :model="editFormModel" :rules="addRules" label-position="right">
+        <el-form-item label="姓名">
+          <el-input v-model="editFormModel.name" clearable></el-input>
+        </el-form-item>
+
+        <el-form-item label="电话">
+          <el-input v-model="editFormModel.phoneNumber" clearable></el-input>
+        </el-form-item>
+
+        <el-form-item label="性别">
+          <el-radio-group v-model="editFormModel.sex" size="medium">
+            <el-radio-button label="男"></el-radio-button>
+            <el-radio-button label="女"></el-radio-button>
+          </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="住址">
+          <el-input v-model="editFormModel.address" clearable></el-input>
+        </el-form-item>
+
+        <el-form-item label="病症">
+          <el-input v-model="editFormModel.description" clearable></el-input>
+        </el-form-item>
+      </el-form>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import EditDialog from '@/components/EditDialog.vue'
 const mockData = require('../mockData').mockData
-const EditField = require('../common/type').EditField
 
 export default {
   name: 'SubscribePage',
   components: {
-    EditDialog
+
   },
   data () {
     return {
       records: [],
-      fields: [
-        new EditField('姓名')
-      ],
+      showAddDialog: false,
       showEditDialog: false,
-      editForm: {
-        '姓名': 'tom'
-      }
+      addFormModel: null,
+      editFormModel: null,
+      addRules: {}
     }
   },
 
   created () {
+    this.initAddFormModel()
     this.loadSubscribeInfos()
   },
 
@@ -84,12 +137,51 @@ export default {
 
     // 编辑用户预约信息.
     handleEdit (index, value) {
-
+      console.log(value)
+      this.showEditDialog = true
     },
 
     // 删除用户预约信息.
     handleDelete (index, userPhone) {
       this.showSuccess('DELETE')
+    },
+
+    // 初始化新增弹框信息.
+    initAddFormModel () {
+      this.addFormModel = {
+        name: '',
+        phoneNumber: '',
+        sex: '男',
+        scheduleTime: '',
+        address: '',
+        description: ''
+      }
+
+      this.editFormModel = {
+        name: '',
+        phoneNumber: '',
+        sex: '男',
+        scheduleTime: '',
+        address: '',
+        description: ''
+      }
+    },
+
+    // Handles the add subscribe.
+    addOneSubscribe () {
+      this.showAddDialog = true
+    },
+
+    // Saves add information.
+    saveAddForm () {
+      console.log(this.addFormModel)
+      this.records.push(this.addFormModel)
+      this.records.sort((a, b) => a.scheduleTime > b.scheduleTime)
+    },
+
+    // Saves edit information.
+    saveEditForm () {
+      console.log(this.editFormModel)
     }
   }
 }
