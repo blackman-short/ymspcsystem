@@ -98,7 +98,7 @@ const reqData = {
   'industryCode': '802110048991169',
   'data': {
     'syncId': '690277e4 e8aa49e9bdd37dc1fd41f364',
-    'plateNumber': '京V45092',
+    'plateNumber': '京123456',
     'orderId': '690277e4 e8aa49e9bdd37dc1fd41f364',
     'payAmount': 1,
     'serviceAmount': 1,

@@ -20,9 +20,9 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 800,
     useContentSize: true,
-    width: 1000,
+    width: 800,
     // 实现js跨域.
     webPreferences: {
       webSecurity: false
