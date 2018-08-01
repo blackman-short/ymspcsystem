@@ -52,9 +52,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // routes
-app.use('/', (req, res, next) => {
-  return res.status(200).send('hello world!')
-})
+app.use('/', routers)
 
 // error handler
 app.use(function (err, req, res, next) {

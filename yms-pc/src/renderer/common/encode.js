@@ -98,20 +98,20 @@ const reqData = {
   'industryCode': '802110048991169',
   'data': {
     'syncId': '690277e4 e8aa49e9bdd37dc1fd41f364',
-    'plateNumber': '京123456',
+    'plateNumber': '鲁A12334F',
     'orderId': '690277e4 e8aa49e9bdd37dc1fd41f364',
     'payAmount': 1,
     'serviceAmount': 1,
-    'orderDate': '2018-07-25T01:43:18.000Z',
-    'startTime': '2018-07-25T01:43:18.000Z',
-    'endTime': '2018-07-25T01:45:18.000Z',
+    'orderDate': '2018-08-01T16:48:18.000Z',
+    'startTime': '2018-08-01T16:50:18.000Z',
+    'endTime': '2018-08-01T16:52:18.000Z',
     'parkId': '89 a39524 - dae1 - 48 ce - 993 f - 74e3 f7020a0c',
     'parkName': '开放接口测试停车场',
     'payCallback': 'http: //webapi.mn.tingkaixin.net/api/UnionPay/PayResult',
     'accSplitData': 'null'
   },
   'timestamp': 1533028952,
-  'signature': 'DCIPHP%2BWqRLRM3W%2FBPxclg%3D%3D'
+  'signature': '5NGQZ4%2BRAsXgiKedxkoWpw%3D%3D'
 }
 
 verificationSignature(reqData)
