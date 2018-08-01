@@ -42,6 +42,15 @@
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页 -->
+    <el-pagination
+      background
+      page-size="10"
+      page-sizes=""
+      total="100"
+      layout="prev, pager, next"
+    >
+    </el-pagination>
 
     <!-- 添加预约 -->
     <el-dialog title="预约信息" :visible.sync="showAddDialog" size="tiny">
@@ -107,6 +116,7 @@
 
 <script>
 const mockData = require('../mockData').mockData
+const { pageSize, pageSizes } = require('@/commom/config')
 
 export default {
   name: 'SubscribePage',
