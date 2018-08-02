@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import showMsgDialog from '../renderer/common/showMsgDialog'
+import showMsgDialog from './common/showMsgDialog'
 
 // 引入字体库
 import 'font-awesome/css/font-awesome.min.css'

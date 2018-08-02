@@ -70,12 +70,10 @@ export default {
     .el-aside 
       background-color #D3DCE6
       color #333
-      text-align: center
     .el-main
       background-color #E9EEF3
       color #333
-      text-align center
   .headerH
     inline-height 160px
-      
+
 </style>

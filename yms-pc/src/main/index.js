@@ -22,7 +22,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 800,
     useContentSize: true,
-    width: 800,
+    width: 1400,
     // 实现js跨域.
     webPreferences: {
       webSecurity: false

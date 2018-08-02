@@ -82,7 +82,7 @@ export default {
       opacity 0.95
       .el-form
       .el-form-item
-        margin 5% 0 0 15%
+        margin 6% 0 0 15%
         .input-content
-          width 50%
+          width 60%
 </style>
