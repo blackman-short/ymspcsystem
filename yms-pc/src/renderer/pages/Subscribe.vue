@@ -68,21 +68,23 @@
           <el-input v-model="addFormModel.phoneNumber" placeholder="电话" clearable></el-input>
         </el-form-item>
 
-        <el-form-item label="预约时间" class="schedule-time">
-          <el-date-picker
-            v-model="addFormModel.scheduleDate"
-            type="date"
-            placeholder="请选择日期">
-          </el-date-picker>
-          <el-time-picker
-            v-model="addFormModel.scheduleTime"
-            placeholder="请选择时间"
-            :picker-options="{
-              start: '8:30',
-              step: '00:30',
-              end: '20:30'
-            }">
-          </el-time-picker>
+        <el-form-item label="预约时间">
+          <div class="schedule-time">
+            <el-date-picker
+              v-model="addFormModel.scheduleDate"
+              type="date"
+              placeholder="请选择日期">
+            </el-date-picker>
+            <el-time-picker
+              v-model="addFormModel.scheduleTime"
+              placeholder="请选择时间"
+              :picker-options="{
+                start: '8:30',
+                step: '00:30',
+                end: '20:30'
+              }">
+            </el-time-picker>
+          </div>
         </el-form-item>
 
         <el-form-item label="性别">
@@ -104,6 +106,7 @@
         <el-button @click="showAddDialog = false">取消</el-button>
         <el-button @click="saveAddForm" type="primary">确定</el-button>
       </div>
+      
     </el-dialog>
     
     <!-- 修改预约 -->
@@ -118,20 +121,22 @@
         </el-form-item>
 
         <el-form-item label="预约时间" class="schedule-time">
-          <el-date-picker
-            v-model="addFormModel.scheduleDate"
-            type="date"
-            placeholder="请选择日期">
-          </el-date-picker>
-          <el-time-picker
-            v-model="addFormModel.scheduleTime"
-            placeholder="请选择时间"
-            :picker-options="{
-              start: '8:30',
-              step: '00:30',
-              end: '20:30'
-            }">
-          </el-time-picker>
+          <div class="schedule-time">
+            <el-date-picker
+              v-model="addFormModel.scheduleDate"
+              type="date"
+              placeholder="请选择日期">
+            </el-date-picker>
+            <el-time-picker
+              v-model="addFormModel.scheduleTime"
+              placeholder="请选择时间"
+              :picker-options="{
+                start: '8:30',
+                step: '00:30',
+                end: '20:30'
+              }">
+            </el-time-picker>
+          </div>
         </el-form-item>
 
         <el-form-item label="性别">
@@ -194,8 +199,8 @@ export default {
     // 获取预约信息, 按时间逆序输出显示.
     loadSubscribeInfos () {
       // 分页查询.
-      const begin = (this.currentPage - 1) * this.pageSize
-      const end = begin + this.pageSize
+      const begin = (this.pageModel.currentPage - 1) * this.pageModel.pageSize
+      const end = begin + this.pageModel.pageSize
       this.records = mockData.scheduleRecords.slice(begin, end)
       this.records.sort((a, b) => a.scheduleTime > b.scheduleTime)
     },
@@ -204,7 +209,7 @@ export default {
     handleEdit (index, value) {
       console.log(value)
       this.operatorTableIndex = index
-      this.showEditDialog = true
+      this.showAddDialog = true
     },
 
     // 删除用户预约信息.
@@ -296,6 +301,7 @@ export default {
     .table-data
       text-align center
     .el-dialog
+      margin-top 20px !important
       .el-form
         padding-left 10%
         .el-form-item
