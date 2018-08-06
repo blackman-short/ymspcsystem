@@ -3,12 +3,14 @@ const mockData = {
     {
       name: 'allen',
       phoneNumber: '12345678910',
-      sex: '女'
+      sex: '女',
+      address: '睢宁'
     },
     {
       name: 'lily',
       phoneNumber: '12345678910',
-      sex: '女'
+      sex: '女',
+      address: '睢宁'
     }
   ],
   scheduleRecords: [

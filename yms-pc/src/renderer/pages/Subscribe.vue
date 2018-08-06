@@ -58,7 +58,7 @@
     </div>
     
     <!-- 添加预约 -->
-    <el-dialog title="预约信息" :visible.sync="showAddDialog" size="tiny">
+    <el-dialog title="预约信息" :visible.sync="showAddDialog" size="tiny" top="2%" close-on-click-modal="false">
       <el-form :model="addFormModel" :rules="addRules" label-position="right" status-icon label-width="80px">
         <el-form-item label="姓名">
           <el-input v-model="addFormModel.name" placeholder="姓名" clearable></el-input>
@@ -110,7 +110,7 @@
     </el-dialog>
     
     <!-- 修改预约 -->
-    <el-dialog title="预约信息" :visible.sync="showEditDialog" size="tiny">
+    <el-dialog title="预约信息" :visible.sync="showEditDialog" size="tiny" top="2%" close-on-click-modal="false">
       <el-form :model="editFormModel" :rules="addRules" label-position="right">
         <el-form-item label="姓名">
           <el-input v-model="editFormModel.name" clearable></el-input>
