@@ -9,3 +9,5 @@ const visitRecordSchema = new mongoose.Schema({
   visitedBy: { type: String  },
   isActive: { type: Boolean, default: true }
 })
+
+mongoose.model('VisitRecord', visitRecordSchema)

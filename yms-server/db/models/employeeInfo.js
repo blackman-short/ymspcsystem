@@ -13,4 +13,4 @@ const employeeSchema = new mongoose.Schema({
   updateAt: { type: String, default: tool.getCurrentTime }
 })
 
-mongoose.model('Employee', employeeSchema)
+mongoose.model('Employee', employeeSchema)    
