@@ -10,7 +10,8 @@ const employeeSchema = new mongoose.Schema({
   phoneNumber: { type: String },
   password: { type: String },
   createAt: { type: String, default: tool.getCurrentTime },
-  updateAt: { type: String, default: tool.getCurrentTime }
+  updateAt: { type: String, default: tool.getCurrentTime },
+  isActive: { type: Boolean, default: true }
 })
 
 mongoose.model('Employee', employeeSchema)    

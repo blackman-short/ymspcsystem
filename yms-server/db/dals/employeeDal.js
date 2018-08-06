@@ -14,9 +14,32 @@ async function add (employee) {
  * Employee login
  * @param {Object} param0 
  */
-async function login ({phoneNumber, password}) {
-  
+async function findOneByPhoneAndPwd ({phoneNumber, password}) {
+  const condition = {
+    phoneNumber: phoneNumber,
+    password: password
+  }
+
+  const fields = {
+    id: 1,
+    name: 1,
+    phoneNumber: 1,
+    _id: 0
+  }
+
+  const query = Employee.findOne(condition).select(fields)
+
+  return query.exec()
+}
+
+/**
+ * Querys all employees information.
+ */
+async function findAll () {
+  let query = Employee.find({isActive: true})
+  return query.exec()
 }
 
 exports.add = add
-exports.login = login
+exports.findAll = findAll
+exports.findOneByPhoneAndPwd = findOneByPhoneAndPwd
